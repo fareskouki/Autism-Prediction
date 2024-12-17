@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment and dependency files
+*.egg-info/
+*.egg
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+db.sqlite3
+
+# Jupyter notebooks and configuration
+*.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+*.bak
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# PyInstaller temporary files
+build/
+dist/
+*.spec
+
+# Production-specific files
+*.sqlite3
+
+# Other
+*.DS_Store
