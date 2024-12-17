@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+ 
 </head>
 <body>
     <div class="container mt-5">
@@ -24,161 +25,188 @@
                 <div class="alert alert-danger">{{ error }}</div>
                 {% endif %}
                 <form id="prediction-form" action="/predict" method="post">
-                    <div class="form-group">
-                        <label for="A1_Score">A1 Score</label>
-                        <input type="number" class="form-control" id="A1_Score" name="A1_Score" required>
+                    <div class="form-title">
+                        <h2>Provide Your Information</h2>
+                        <p>Fill out the form carefully for better prediction.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="A2_Score">A2 Score</label>
-                        <input type="number" class="form-control" id="A2_Score" name="A2_Score" required>
+                
+                    <!-- Scores in pairs -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="A1_Score">A1 Score</label>
+                            <input type="number" class="form-control" id="A1_Score" name="A1_Score" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="A2_Score">A2 Score</label>
+                            <input type="number" class="form-control" id="A2_Score" name="A2_Score" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A3_Score">A3 Score</label>
-                        <input type="number" class="form-control" id="A3_Score" name="A3_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="A3_Score">A3 Score</label>
+                            <input type="number" class="form-control" id="A3_Score" name="A3_Score" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="A4_Score">A4 Score</label>
+                            <input type="number" class="form-control" id="A4_Score" name="A4_Score" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A4_Score">A4 Score</label>
-                        <input type="number" class="form-control" id="A4_Score" name="A4_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="A5_Score">A5 Score</label>
+                            <input type="number" class="form-control" id="A5_Score" name="A5_Score" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="A6_Score">A6 Score</label>
+                            <input type="number" class="form-control" id="A6_Score" name="A6_Score" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A5_Score">A5 Score</label>
-                        <input type="number" class="form-control" id="A5_Score" name="A5_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="A7_Score">A7 Score</label>
+                            <input type="number" class="form-control" id="A7_Score" name="A7_Score" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="A8_Score">A8 Score</label>
+                            <input type="number" class="form-control" id="A8_Score" name="A8_Score" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A6_Score">A6 Score</label>
-                        <input type="number" class="form-control" id="A6_Score" name="A6_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="A9_Score">A9 Score</label>
+                            <input type="number" class="form-control" id="A9_Score" name="A9_Score" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="A10_Score">A10 Score</label>
+                            <input type="number" class="form-control" id="A10_Score" name="A10_Score" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A7_Score">A7 Score</label>
-                        <input type="number" class="form-control" id="A7_Score" name="A7_Score" required>
+
+                    <!-- Personal information fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" id="gender" name="gender" required>
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A8_Score">A8 Score</label>
-                        <input type="number" class="form-control" id="A8_Score" name="A8_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ethnicity">Ethnicity</label>
+                            <select class="form-control" id="ethnicity" name="ethnicity" required>
+                                <option value="Others">Others</option>
+                                <option value="White-European">White-European</option>
+                                <option value="Middle Eastern">Middle Eastern</option>
+                                <option value="Pasifika">Pasifika</option>
+                                <option value="Black">Black</option>
+                                <option value="Hispanic">Hispanic</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Turkish">Turkish</option>
+                                <option value="South Asian">South Asian</option>
+                                <option value="Latino">Latino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jaundice">Jaundice</label>
+                            <select class="form-control" id="jaundice" name="jaundice" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A9_Score">A9 Score</label>
-                        <input type="number" class="form-control" id="A9_Score" name="A9_Score" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="austim">Autism</label>
+                            <select class="form-control" id="austim" name="austim" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contry_of_res">Country of Residence</label>
+                            <select class="form-control" id="contry_of_res" name="contry_of_res" required>
+                                <option value="" disabled selected>Select a country</option>
+                                <option value="Austria">Austria</option>
+                                <option value="India">India</option>
+                                <option value="United States">United States</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Kazakhstan">Kazakhstan</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="Iraq">Iraq</option>
+                                <option value="France">France</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Viet Nam">Viet Nam</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Oman">Oman</option>
+                                <option value="Italy">Italy</option>
+                                <option value="AmericanSamoa">American Samoa</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Aruba">Aruba</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Armenia">Armenia</option>
+                                <option value="Serbia">Serbia</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Iceland">Iceland</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                                <option value="Angola">Angola</option>
+                                <option value="China">China</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Tonga">Tonga</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Nicaragua">Nicaragua</option>
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Cyprus">Cyprus</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="A10_Score">A10 Score</label>
-                        <input type="number" class="form-control" id="A10_Score" name="A10_Score" required>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="used_app_before">Used the app before?</label>
+                            <select class="form-control" id="used_app_before" name="used_app_before" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="result">Result</label>
+                            <input type="number" class="form-control" id="result" name="result" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" class="form-control" id="age" name="age" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select class="form-control" id="gender" name="gender" required>
-                            <option value="m">Male</option>
-                            <option value="f">Female</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="ethnicity">Ethnicity</label>
-                        <select class="form-control" id="ethnicity" name="ethnicity" required>
-                            <option value="Others">Others</option>
-                            <option value="White-European">White-European</option>
-                            <option value="Middle Eastern ">Middle Eastern</option> <!-- Add trailing space -->
-                            <option value="Pasifika">Pasifika</option>
-                            <option value="Black">Black</option>
-                            <option value="Hispanic">Hispanic</option>
-                            <option value="Asian">Asian</option>
-                            <option value="Turkish">Turkish</option>
-                            <option value="South Asian">South Asian</option>
-                            <option value="Latino">Latino</option>
-                        </select>
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="jaundice">Jaundice</label>
-                        <select class="form-control" id="jaundice" name="jaundice" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="austim">Autism</label>
-                        <select class="form-control" id="austim" name="austim" required>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="contry_of_res">Country of Residence</label>
-                        <select class="form-control" id="contry_of_res" name="contry_of_res" required>
-                            <option value="" disabled selected>Select a country</option>
-                            <option value="Austria">Austria</option>
-                            <option value="India">India</option>
-                            <option value="United States">United States</option>
-                            <option value="South Africa">South Africa</option>
-                            <option value="Jordan">Jordan</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Brazil">Brazil</option>
-                            <option value="New Zealand">New Zealand</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Kazakhstan">Kazakhstan</option>
-                            <option value="United Arab Emirates">United Arab Emirates</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Ukraine">Ukraine</option>
-                            <option value="Iraq">Iraq</option>
-                            <option value="France">France</option>
-                            <option value="Malaysia">Malaysia</option>
-                            <option value="Viet Nam">Viet Nam</option>
-                            <option value="Egypt">Egypt</option>
-                            <option value="Netherlands">Netherlands</option>
-                            <option value="Afghanistan">Afghanistan</option>
-                            <option value="Oman">Oman</option>
-                            <option value="Italy">Italy</option>
-                            <option value="AmericanSamoa">American Samoa</option>
-                            <option value="Bahamas">Bahamas</option>
-                            <option value="Saudi Arabia">Saudi Arabia</option>
-                            <option value="Ireland">Ireland</option>
-                            <option value="Aruba">Aruba</option>
-                            <option value="Sri Lanka">Sri Lanka</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Bolivia">Bolivia</option>
-                            <option value="Azerbaijan">Azerbaijan</option>
-                            <option value="Armenia">Armenia</option>
-                            <option value="Serbia">Serbia</option>
-                            <option value="Ethiopia">Ethiopia</option>
-                            <option value="Sweden">Sweden</option>
-                            <option value="Iceland">Iceland</option>
-                            <option value="Hong Kong">Hong Kong</option>
-                            <option value="Angola">Angola</option>
-                            <option value="China">China</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Tonga">Tonga</option>
-                            <option value="Pakistan">Pakistan</option>
-                            <option value="Iran">Iran</option>
-                            <option value="Argentina">Argentina</option>
-                            <option value="Japan">Japan</option>
-                            <option value="Mexico">Mexico</option>
-                            <option value="Nicaragua">Nicaragua</option>
-                            <option value="Sierra Leone">Sierra Leone</option>
-                            <option value="Czech Republic">Czech Republic</option>
-                            <option value="Niger">Niger</option>
-                            <option value="Romania">Romania</option>
-                            <option value="Cyprus">Cyprus</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="Burundi">Burundi</option>
-                            <option value="Bangladesh">Bangladesh</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="used_app_before">Used the app before?</label>
-                        <select class="form-control" id="used_app_before" name="used_app_before" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="result">Result</label>
-                        <input type="number" class="form-control" id="result" name="result" required>
-                    </div>
+
+                    <!-- Relation (single select) -->
                     <div class="form-group">
                         <label for="relation">Relation</label>
                         <select class="form-control" id="relation" name="relation" required>
@@ -186,6 +214,7 @@
                             <option value="Others">Others</option>
                         </select>
                     </div>
+
                     <button type="submit" class="btn btn-lg btn-primary btn-block">Predict</button>
                 </form>
 
@@ -218,6 +247,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>

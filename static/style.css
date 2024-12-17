@@ -1,90 +1,179 @@
-/* styles.css */
-
+/* General body styling */
 body {
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #4a4a4a, #1e2a47);
     font-family: 'Arial', sans-serif;
-    color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container */
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Card styling */
 .card {
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
-}
-
-.card-body {
-    padding: 30px;
-}
-
-h1, h3 {
-    color: #007bff;
-}
-
-p.lead {
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="number"],
-select {
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    padding: 12px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-button.btn {
-    background-color: #007bff;
+    border-radius: 15px;
+    background: #292929;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
     color: white;
-    font-weight: bold;
-    border: none;
-    padding: 14px;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: background-color 0.3s;
 }
 
-button.btn:hover {
-    background-color: #0056b3;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.alert {
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-}
 .card-header {
-    background-color: #007bff;
+    background: #00bcd4;
     color: white;
     text-align: center;
     padding: 15px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 15px 15px 0 0;
     font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Form styling */
+form label {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+/* Professional Form Title Styling */
+.form-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-title h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00bcd4; /* Highlighted blue color */
+    margin: 0;
+}
+
+.form-title p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 5px;
+}
+/* Form control styling to keep text color white */
+.form-control {
+    background-color: #444;
+    color: #fff !important; /* Always keep the text color white */
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: #444; /* Slightly lighter gray for focus */
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 5px #00bcd4;
+    color: #fff !important; /* Text remains white during focus */
+}
+
+/* Dropdown (select) always white text */
+select.form-control {
+    background-color: #444;
+    color: #fff !important; /* Always white */
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+select.form-control:focus {
+    background-color: #444;
+    border-color: #00bcd4;
+    outline: none;
+    color: #fff !important; /* White on focus */
+}
+
+
+/* Form rows */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 45%;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #00bcd4;
+    border-color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #008c9e;
+    border-color: #008c9e;
+    transform: scale(1.05);
+}
+
+/* Alerts */
+.alert {
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.alert-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.alert-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+/* Title and heading styling */
+h1, h3 {
+    text-align: center;
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+p.lead {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+/* Modal Styling */
+#predictionModal .modal-content {
+    background: #222;
+    color: white;
+    border-radius: 10px;
+}
+
+#predictionModal .modal-header {
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+#predictionModal .modal-footer {
+    border-top: 1px solid #00bcd4;
 }
