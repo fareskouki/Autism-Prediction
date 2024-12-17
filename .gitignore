@@ -4,39 +4,30 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Virtual environment and dependency files
-*.egg-info/
-*.egg
-.env
+# Virtual environments
 venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+myenv/
+.env
+
+# Logs and databases
+*.log
 *.db
 db.sqlite3
 
-# Jupyter notebooks and configuration
+# Jupyter notebooks
 *.ipynb_checkpoints/
 
-# Logs and temporary files
-*.log
+# Temporary files
 *.tmp
-.DS_Store
 *.bak
 
-# Compiled files
-*.pyc
-*.pyo
-*.pyd
-
-# PyInstaller temporary files
+# PyInstaller build files
 build/
 dist/
 *.spec
 
+# OS-specific files
+.DS_Store
+
 # Production-specific files
 *.sqlite3
-
-# Other
-*.DS_Store

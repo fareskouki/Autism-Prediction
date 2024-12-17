@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">Autism Prediction Tool</h1>
+            <p class="lead">Predict the risk of autism based on various scores and personal information.</p>
+        </div>
+
+        <div class="card shadow-lg rounded-lg">
+            <div class="card-header">
+                <i class="fas fa-robot"></i> Prediction Models
+            </div>
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+                <form id="prediction-form" action="/predict" method="post">
+                    <div class="form-group">
+                        <label for="A1_Score">A1 Score</label>
+                        <input type="number" class="form-control" id="A1_Score" name="A1_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A2_Score">A2 Score</label>
+                        <input type="number" class="form-control" id="A2_Score" name="A2_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A3_Score">A3 Score</label>
+                        <input type="number" class="form-control" id="A3_Score" name="A3_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A4_Score">A4 Score</label>
+                        <input type="number" class="form-control" id="A4_Score" name="A4_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A5_Score">A5 Score</label>
+                        <input type="number" class="form-control" id="A5_Score" name="A5_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A6_Score">A6 Score</label>
+                        <input type="number" class="form-control" id="A6_Score" name="A6_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A7_Score">A7 Score</label>
+                        <input type="number" class="form-control" id="A7_Score" name="A7_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A8_Score">A8 Score</label>
+                        <input type="number" class="form-control" id="A8_Score" name="A8_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A9_Score">A9 Score</label>
+                        <input type="number" class="form-control" id="A9_Score" name="A9_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="A10_Score">A10 Score</label>
+                        <input type="number" class="form-control" id="A10_Score" name="A10_Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="m">Male</option>
+                            <option value="f">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ethnicity">Ethnicity</label>
+                        <select class="form-control" id="ethnicity" name="ethnicity" required>
+                            <option value="Others">Others</option>
+                            <option value="White-European">White-European</option>
+                            <option value="Middle Eastern">Middle Eastern</option>
+                            <option value="Pasifika">Pasifika</option>
+                            <option value="Black">Black</option>
+                            <option value="Hispanic">Hispanic</option>
+                            <option value="Asian">Asian</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="South Asian">South Asian</option>
+                            <option value="Latino">Latino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jaundice">Jaundice</label>
+                        <select class="form-control" id="jaundice" name="jaundice" required>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="austim">Autism</label>
+                        <select class="form-control" id="austim" name="austim" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contry_of_res">Country of Residence</label>
+                        <input type="text" class="form-control" id="contry_of_res" name="contry_of_res" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="used_app_before">Used the app before?</label>
+                        <select class="form-control" id="used_app_before" name="used_app_before" required>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="result">Result</label>
+                        <input type="number" class="form-control" id="result" name="result" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="relation">Relation</label>
+                        <select class="form-control" id="relation" name="relation" required>
+                            <option value="Self">Self</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Predict</button>
+                </form>
+
+                {% if prediction %}
+                <div class="mt-4">
+                    <h3>Prediction Result:</h3>
+                    <div class="alert alert-success">{{ prediction.message }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="predictionModal" tabindex="-1" role="dialog" aria-labelledby="predictionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="predictionModalLabel">Prediction Result</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="predictionMessage">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault();
+                
+                var formData = $(this).serializeArray();
+                var jsonData = {};
+                
+                // Check if every field exists and is not empty
+                for (var i = 0; i < formData.length; i++) {
+                    var field = formData[i];
+                    if (!field.value.trim()) {
+                        alert(`The field "${field.name}" is required.`);
+                        return;
+                    }
+                    jsonData[field.name] = field.value;
+                }
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    contentType: 'application/json',
+                    data: JSON.stringify(jsonData), // Send as JSON
+                    success: function(response) {
+                        var message = response.result == 1 ? "You're going to have autism." : "The prediction indicates no risk of autism.";
+                        $('#predictionMessage').html(`<div class="alert alert-${response.result == 1 ? 'danger' : 'success'}">${message}</div>`);
+                        $('#predictionModal').modal('show');
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while processing your request. Please try again later.');
+                    }
+                });
+            });
+        });
+    </script>
+    
